@@ -3,6 +3,10 @@
 use dioxus::prelude::*;
 use log::LevelFilter;
 
+mod mods;
+
+
+
 #[derive(Clone, Routable, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
 enum Route {
     #[route("/")]
@@ -14,7 +18,7 @@ enum Route {
 fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
-
+    mods::continuous_var::equation(1.0);
     launch(App);
 }
 
